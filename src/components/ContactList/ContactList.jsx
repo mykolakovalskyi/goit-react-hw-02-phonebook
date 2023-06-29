@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from './ContactList.module.css';
 
 export default class ContactList extends Component {
   setContactToDelete = e => {
@@ -15,7 +16,11 @@ export default class ContactList extends Component {
           return (
             <li key={contact.id}>
               {contact.name}: {contact.number}{' '}
-              <button id={contact.id} onClick={this.setContactToDelete}>
+              <button
+                id={contact.id}
+                onClick={this.setContactToDelete}
+                className={css.deleteButton}
+              >
                 Delete
               </button>
             </li>

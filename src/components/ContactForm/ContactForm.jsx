@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import css from './ContactForm.module.css';
 
 export default class ContactForm extends Component {
   state = {
@@ -36,11 +37,12 @@ export default class ContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <p>Name</p>
+      <form onSubmit={this.handleSubmit} className={css.contactForm}>
+        <label htmlFor="name">Name</label>
         <input
           type="text"
           name="name"
+          id="name"
           value={name}
           onChange={this.handleChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -48,9 +50,13 @@ export default class ContactForm extends Component {
           required
           placeholder="Jacob Mercer"
         />
+        <label label htmlFor="number">
+          Number
+        </label>
         <input
           type="tel"
           name="number"
+          id="number"
           value={number}
           onChange={this.handleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -58,7 +64,9 @@ export default class ContactForm extends Component {
           required
           placeholder="000-00-00"
         />
-        <button type="submit">Add contact</button>
+        <button type="submit" className={css.submitButton}>
+          Add contact
+        </button>
       </form>
     );
   }

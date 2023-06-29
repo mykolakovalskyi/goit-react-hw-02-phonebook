@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ContactForm from './ContactForm';
-import Filter from './Filter';
-import ContactList from './ContactList';
+import ContactForm from '../ContactForm/ContactForm';
+import Filter from '../Filter/Filter';
+import ContactList from '../ContactList/ContactList';
+import css from './App.module.css';
 
 export default class App extends Component {
   state = {
@@ -45,7 +46,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={css.wraper}>
         <h1>Phonebook</h1>
         <ContactForm newContactData={this.addContact}></ContactForm>
         <h2>Contacts</h2>
